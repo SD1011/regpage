@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+    </script> 
+  <script> 
+    $(document).ready(function() { 
+      $("input").change(function(){
+        $("input").focusout(function() { 
+            if($(this).val()=='' ) { 
+                $(this).css('border', 'solid 2px red'); 
+            }
+            else {
+                  
+                // If it is not blank.
+                $(this).css('border', 'solid 2px green');    
+            }    
+        }) .trigger("focusout");
+      });
+    }); 
+
+</script> 
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+  <h1 class="text-success text-center">Registration </h1>
+     
+  <h2 class="text-center">Form Validation</h2>
+  <div class = "container">
+<form action="/" method="post" name="form1">
+  
+  <p style="color: red;"><%= data.errorfield %></p>
+  <div class="form-group">
+  <input type="text"  class="form-control" placeholder="Enter name" name="name"  value="" >
+</div>
+<div class="form-group">
+
+  <input type="text"  class="form-control" placeholder="Enter Username here" name="username" value=""  >
+</div>
+<div class="form-group">
+<input type="text" name="email" class="form-control"  placeholder="Enter email" value="">
+<p style="color: red;"><%= data.erroremail %></p>
+</div>
+<div class="form-group">
+<input type="text"  class="form-control" placeholder="Enter City" name="city" value="" >
+<p style="color: red;"><%= data.errorcity %></p>
+</div>
+<div class="form-group">
+<input type="password" name="password" class="form-control" id="password" placeholder="*********" value="">
+<p style="color: red;"><%= data.errorpass %></p>  
+</div>
+<div class="form-group">
+  <input type="password" name="confirmpassword" class="form-control" id="confirmpassword" placeholder="*********" value="">
+  <p style="color: red;"><%= data.errormatch %></p>  
+</div>
+
+<div class="form-group">
+<button type="reset"  class="btn btn-primary" > Reset </button>
+<button  type="submit"  class="btn btn-primary" > Submit </button>
+</div>
+</form>
+
+</div>
+</body>
+</html>
+
